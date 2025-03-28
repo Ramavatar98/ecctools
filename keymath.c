@@ -148,7 +148,7 @@ int main(int argc, char **argv)  {
 		break;		
 	}
 	generate_strpublickey(&C,true,str_publickey);
-	printf("Result: %s\n\n",str_publickey);	
+	printf("%s\n\n",str_publickey);	
 }
 
 void generate_strpublickey(struct Point *publickey,bool compress,char *dst)	{
