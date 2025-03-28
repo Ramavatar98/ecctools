@@ -1,1 +1,34 @@
-y
+name: Auto Run ECCTools
+
+on:
+  workflow_dispatch:  # Manual Start
+  schedule:
+    - cron: "50 */6 * * *"  # Runs every 5 hours 50 minutes
+
+jobs:
+  run-ecctools:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+
+      - name: Clone ECCTools Repository
+        run: git clone https://github.com/Ramavatar98/ecctools.git
+
+      - name: Build ECCTools
+        run: |
+          cd ecctools
+          make
+
+      - name: Run ECCTools Script
+        run: |
+          cd ecctools
+          timeout 20990s python3 run.py
+        continue-on-error: true
+
+      - name: show file 
+        run: |
+           cd ecctools 
+           cat found.txt
