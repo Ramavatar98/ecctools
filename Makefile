@@ -4,7 +4,7 @@ default:
 	gcc -O3 -c base58/base58.c -o base58.o
 	gcc -O3 -c rmd160/rmd160.c -o rmd160.o
 	gcc -O3 -c xxhash/xxhash.c -o xxhash.o
-	#gcc -O3 -c gmpecc.c -o gmpecc.o
+	gcc -O3 -c gmpecc.c -o gmpecc.o
 	gcc -O3 -c util.c -o util.o
 	gcc -O3 -o test_functions test_functions.c util.o
 	gcc -O3 -o rehashaddress rehashaddress.c gmpecc.c util.o sha256.o base58.o rmd160.o -lgmp
